@@ -1,0 +1,17 @@
+README
+
+Instruction to run the scripts:
+
+All commands are entered in the "sandbox" directory. 
+
+To compile every file for every student:
+1. $ python script.py compile
+
+To run the test files and generate result files:
+1. $ python script.py run SortTester.class
+2. The "SortTester.class" is the class name for the test file
+
+To clean up all .class files and generated result files:
+1. $ python script.py remove
+
+If you have any questions or concerns, please contact Yanfeng.Zhao@utexas.edu
