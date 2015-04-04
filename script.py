@@ -10,7 +10,7 @@ def compileFiles():
 
 	# compile students' code
 	for root, dirs, files in os.walk("."):
-		if root is not ".":
+		if root is not "." and "git" not in root:
 			os.chdir(root)
 			
 			print "Compiling " + root
@@ -28,7 +28,7 @@ def removeClassFiles():
 		subprocess.call(["rm", file])
 
 	for root, dirs, files in os.walk("."):
-		if root is not ".":
+		if root is not "." and "git" not in root:
 			os.chdir(root)
 			
 			for root, dirs, files in os.walk("."):
@@ -49,7 +49,7 @@ def runTests(testClassFile):
 	studentTestList = []
 	numberOfStudents = 0
 	for root, dirs, files in os.walk('.'): # traverse each student
-		if root is not ".":
+		if root is not "." and "git" not in root:
 			studentList.append(root[2:])
 			studentTestList.append(root[2:]+"'s test")
 			numberOfStudents = numberOfStudents + 1
@@ -60,7 +60,7 @@ def runTests(testClassFile):
 	testMatrix = []
 	# runTests
 	for root, dirs, files in os.walk('.'): # traverse each student
-		if root is not ".":
+		if root is not "." and "git" not in root:
 			os.chdir(root)
 			
 			for root2, dirs2, files2 in os.walk("."): # find all none test file and add to main directory
@@ -73,7 +73,7 @@ def runTests(testClassFile):
 			row = []
 			# traverse every student directory, copy the test file to main, run test file, save results, remove test file
 			for root2, dirs2, files2 in os.walk("."):
-				if root2 is not ".":
+				if root2 is not "." and "git" not in root2:
 					os.chdir(root2)
 					# copy the test file to main
 					subprocess.call(["cp",testClassFile,"./../"]) 
@@ -118,7 +118,7 @@ def runTests(testClassFile):
 def detectStudentTestErrors(numberOfStudents, testClassFile):
 	errorMatrix = []
 	for root, dirs, files in os.walk('.'): # traverse each student
-		if root is not ".":
+		if root is not "." and "git" not in root:
 			os.chdir(root)
 
 			for root2, dirs2, files2 in os.walk("."): # find test file and add to main directory
