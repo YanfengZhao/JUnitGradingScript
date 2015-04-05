@@ -136,7 +136,10 @@ def detectStudentTestErrors(numberOfStudents, testClassFile):
 			# parse output see how many errors there are
 			outputList = output.split()
 			numberOfErrors = int(outputList[2])
-			
+			if numberOfErrors == 1:
+				print root[2:] + " has " + str(numberOfErrors) + " incorrect testcase"
+			elif numberOfErrors > 1:
+				print root[2:] + " has " + str(numberOfErrors) + " incorrect testcases"
 			# append to the list
 			for x in range(0, numberOfStudents):
 			 	row.append(numberOfErrors)
